@@ -1,0 +1,323 @@
+/* Custom CSS untuk kustomisasi atau override Bootstrap */
+
+:root {
+    --primary-color: #2C3E50; /* Biru Gelap/Navy - untuk latar belakang utama, header, footer */
+    --accent-color: #1ABC9C; /* Teal - untuk tombol, highlight, ikon, hover/active state */
+    --text-light: #ECF0F1; /* Abu-abu Cerah - untuk teks di latar gelap */
+    --text-dark: #34495E; /* Biru Keabu-abuan Gelap - untuk teks di latar terang */
+    --bg-light: #F8F9FA; /* Putih Kebiruan - untuk latar belakang bagian terang */
+    --hero-bg-gradient-start: #34495E; /* Biru Keabu-abuan Gelap - untuk gradien hero */
+    --hero-bg-gradient-end: #2C3E50; /* Biru Gelap - untuk gradien hero */
+    --hero-overlay: rgba(0, 0, 0, 0.5); /* Overlay gelap untuk Hero */
+}
+
+body {
+    padding-top: 76px; /* Offset untuk fixed navbar */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark); /* Default text color */
+    background-color: var(--bg-light); /* Light background for overall page */
+}
+
+/* Header/Navbar */
+.navbar {
+    background-color: var(--primary-color) !important; /* Darker blue */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+}
+
+.navbar-brand {
+    color: var(--text-light) !important; /* Light text for brand */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Penyesuaian Navigasi */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.7) !important; /* Lighter white for nav links */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--accent-color) !important; /* Warna hover/active untuk nav link */
+    font-weight: 600;
+}
+
+/* Garis bawah untuk nav link saat hover/active (custom) */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Sesuaikan jika perlu offset dari teks link */
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Custom Hero Section */
+.hero {
+    /* Menggunakan gradien sebagai overlay di atas warna solid atau gambar */
+    background: linear-gradient(135deg, var(--hero-bg-gradient-start) 0%, var(--hero-bg-gradient-end) 100%);
+    color: var(--text-light); /* Light text for hero section */
+    min-height: 100vh; /* Make hero cover full viewport height */
+    display: flex; /* Use flexbox for centering content */
+    align-items: center;
+    padding-top: 80px; /* Adjust for fixed navbar */
+    padding-bottom: 50px;
+}
+
+.hero .profile-picture {
+    width: 180px; /* Ukuran foto profil */
+    height: 180px;
+    object-fit: cover;
+    border: 6px solid var(--accent-color); /* Teal border for profile picture */
+    box-shadow: 0 0 20px rgba(26, 188, 156, 0.4); /* Glow effect for profile picture */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+.hero .lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+}
+
+.hero .btn-primary {
+    background-color: var(--accent-color); /* Teal button */
+    border-color: var(--accent-color);
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px; /* Rounded buttons */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+}
+
+.hero .btn-primary:hover {
+    background-color: #16A085; /* Slightly darker teal on hover */
+    border-color: #16A085;
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 8px 20px rgba(26, 188, 156, 0.4);
+}
+
+/* Section Titles */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--primary-color); /* Dark blue for section titles */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Lebar garis bawah judul */
+    height: 4px;
+    background-color: var(--accent-color); /* Teal underline */
+    border-radius: 2px;
+}
+
+/* About Me Section */
+.about-me {
+    background-color: var(--bg-light); /* Light background */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about-me p {
+    color: #5B728C; /* Slightly darker gray for about text */
+    font-size: 1.15rem;
+}
+
+.about-me hr {
+    border-top: 2px solid #DDE6E9; /* Lighter separator */
+    width: 50%;
+    margin: 3rem auto;
+}
+
+.about-me h3 {
+    color: var(--primary-color); /* Dark blue for skill title */
+}
+
+.about-me .badge {
+    background-color: var(--accent-color); /* Teal for skill badges */
+    color: var(--text-light);
+    padding: 0.75em 1.2em;
+    border-radius: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+}
+
+.about-me .badge:hover {
+    background-color: #16A085; /* Darker teal on hover */
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: #ECF0F1; /* Slightly darker light background for projects */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.projects-section .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image height consistency */
+.card-img-top {
+    height: 200px; /* Tinggi tetap untuk gambar proyek */
+    object-fit: cover;
+    border-bottom: 1px solid #DDE6E9;
+}
+
+.projects-section .card-title {
+    color: var(--primary-color); /* Dark blue for card titles */
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.projects-section .card-text {
+    color: #5B728C; /* Gray for card text */
+    font-size: 0.95rem;
+}
+
+.projects-section .btn-outline-primary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.projects-section .btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+}
+
+.projects-section .btn-outline-dark {
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.projects-section .btn-outline-dark:hover {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--bg-light); /* Light background */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.contact-section p {
+    color: #5B728C;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-section ul {
+    margin-bottom: 3rem;
+}
+
+.contact-section li {
+    color: #5B728C;
+    font-size: 1.1rem;
+}
+
+.contact-section li a {
+    color: var(--primary-color); /* Dark blue for contact links */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-section li a:hover {
+    color: var(--accent-color); /* Teal on hover */
+}
+
+.contact-section .text-primary {
+    color: var(--accent-color) !important; /* Teal for icons */
+}
+
+/* Social Icons Customization */
+.social-icons a {
+    color: var(--text-dark); /* Menggunakan warna dark dari palet kita */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color); /* Warna hover sesuai accent-color kita */
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color); /* Dark blue for footer */
+    color: rgba(255, 255, 255, 0.7); /* Lighter gray for footer text */
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Untuk tampilan lebih kecil dari 'lg' breakpoint Bootstrap */
+    .navbar-collapse {
+        background-color: var(--primary-color); /* Menggunakan warna primary-color untuk dropdown */
+        margin-top: 10px;
+        border-radius: 0.25rem;
+        padding: 10px;
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .navbar-nav .nav-link::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    body {
+        padding-top: 0; /* Hapus offset jika navbar tidak fixed di mobile, atau biarkan tetap jika fixed */
+    }
+
+    /* Sesuaikan jika navbar tetap fixed di mobile tapi padding-top mengganggu */
+    .hero {
+        padding-top: 100px; /* Beri sedikit lebih banyak padding atas di mobile */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero .lead {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
